@@ -3,11 +3,14 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/oh-my-zsh
+source $HOME/.aliases
+# source $HOME/aliases/hadoop-2.9.0.alias
+# source $HOME/.aliases
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -27,7 +30,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -61,10 +64,13 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   vi-mode
+  zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
+autoload -U compinit && compinit
+unset zle_bracketed_paste
 
+source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -93,3 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# export PATH=/home/coc/android-studio/bin
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
+export JAVA=/usr/lib/jvm/java-8-openjdk/jre/bin
+
+export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin:$PATH

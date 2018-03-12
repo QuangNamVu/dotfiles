@@ -7,7 +7,7 @@
    dotspacemacs-configuration-layers
    '(
      html
-     ;; shell-scripts ;; fish shell
+     shell-scripts ;; fish shell
      python
      csv
      helm
@@ -117,11 +117,12 @@
               '((shell :variables
                        shell-default-position 'bottom
                        shell-default-height 30
-                       ;; shell-default-shell 'eshell
-                       shell-default-term-shell "/bin/zsh"
-                       ;; shell-enable-smart-eshell t
-                       ;; shell-protect-eshell-prompt nil
+                       shell-default-term-shell "/bin/fish"
+
+                       ;; Width of the shell popup buffers
+                       shell-default-full-span nil
                        )))
+
 
 (setq yas-snippet-dirs '("~/.emacs.d/private/snippets"))
 (defun dotspacemacs/user-init ()
