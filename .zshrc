@@ -10,8 +10,14 @@ source $HOME/.aliases
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bira"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="bira"
+# ZSH_THEME="dpoggi"
+# ZSH_THEME="eastwood"
+# ZSH_THEME="avit"
+# ZSH_THEME="tjkirch"
 
+ZSH_THEME="steeef"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
