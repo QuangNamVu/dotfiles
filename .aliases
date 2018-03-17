@@ -1,0 +1,2 @@
+alias dot='/usr/bin/git --git-dir=/home/coc/dotfiles/ --work-tree=/home/coc'
+#alias python=/usr/bin/python2.7-config
