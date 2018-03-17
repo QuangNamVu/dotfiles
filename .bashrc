@@ -36,5 +36,3 @@ export YARN_HOME=/home/coc/hadoop-2.9.0
 
 export PATH=$PATH:/home/coc/hadoop-2.9.0/bin
 export PATH=$PATH:/home/coc/android-studio/bin
-
-alias config='/usr/bin/git --git-dir=/home/coc/.cfg/ --work-tree=/home/coc'
