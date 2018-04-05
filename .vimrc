@@ -9,8 +9,14 @@ inoremap <c-l> <Esc> gg=G `^ <CR>
 
 map <f5> :make %:r
 noremap  <Leader>cm :make %:r <CR>
+
 noremap  <Leader><Leader> :
 noremap  ; :
+
+noremap <Leader>wh :wincmd h<CR>
+noremap <Leader>wj :wincmd j<CR>
+noremap <Leader>wk :wincmd k<CR>
+noremap <Leader>wl :wincmd l<CR>
 "/usr/share/vim/vim80/colors
 colorscheme default
 syntax on

@@ -15,6 +15,8 @@ source $HOME/.aliases
 # ZSH_THEME="dpoggi"
 # ZSH_THEME="eastwood"
 # ZSH_THEME="avit"
+# ZSH_THEME="jonathan"
+
 # ZSH_THEME="tjkirch"
 
 ZSH_THEME="steeef"
@@ -111,4 +113,6 @@ source $ZSH/oh-my-zsh.sh
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
 export JAVA=/usr/lib/jvm/java-8-openjdk/jre/bin
 
-export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin:$PATH
+export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin:/home/coc/Android/Sdk/platform-tools:$PATH
+
+#export TERM=xterm #disable color
