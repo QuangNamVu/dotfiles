@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: fj
+# key: fj
+# --
+for (${1:int }${2:j} = 0; $2 < ${3:N}; ++$2) {
+    $0
+}
