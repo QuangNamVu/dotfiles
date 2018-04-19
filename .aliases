@@ -1,2 +1,11 @@
-alias dot='/usr/bin/git --git-dir=/home/coc/dotfiles/ --work-tree=/home/coc'
+alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias cb=xclip -selection clipboard
+
 #alias python=/usr/bin/python2.7-config
+export HADOOP=/usr/bin/hadoop
+export PATH=/usr/lib/hadoop-3.0.0/sbin:$PATH
+export PATH=/home/coc/android-studio/bin:$PATH
+#export PATH=/usr/lib/hadoop-3.0.0/sbin:$PATH
+
+#       dark net
+export PATH=/usr/share/darknet:$PATH
