@@ -6,19 +6,20 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
+     vimscript
      yaml
      sql
      yaml
-     vimscript
      html
-     shell-scripts ;; fish shell
+     ;; fish shell
+     ;; shell-scripts
 
      python
      ipython-notebook
 
      java
 
-     c-c++
+     (c-c++ :variables c-c++-enable-clang-support t)
 
      latex
 
@@ -28,8 +29,10 @@
 
      pdf-tools
      emacs-lisp
+
      helm
      auto-completion
+
      git
      shell
      markdown
@@ -117,7 +120,7 @@
    dotspacemacs-whitespace-cleanup nil
    ))
 
-(setq-default dotspacemacs-configuration-layers 
+(setq-default dotspacemacs-configuration-layers
               '((c-c++ :variables
                        c-c++-enable-clang-support t
                        c-c++-default-mode-for-headers 'c++-mode
@@ -135,8 +138,7 @@
               '((shell :variables
                        shell-default-position 'bottom
                        shell-default-height 30
-                       shell-default-term-shell "/bin/fish"
-
+                       ;; shell-default-term-shell "/bin/fish"
                        ;; Width of the shell popup buffers
                        shell-default-full-span nil
                        )))
@@ -147,6 +149,8 @@
   (setq-default git-magit-status-fullscreen t)
   (setq-default git-enable-magit-svn-plugin t)
   (setq exec-path-from-shell-arguments '("-l"))
+  ;; Spacemacs showing an inline arguments hint for the C/C++ function at point
+  ;; (setq auto-completion-enable-help-tooltip t)
   )
 
 ;; org
@@ -166,17 +170,8 @@ dotspacemacs-configuration-layers '(
                                     (latex :variables latex-build-command "LaTeX"
                                            latex-enable-auto-fill t
                                            latex-enable-folding t))
-(use-package origami
-  :defer t
-  :init
-  (progn
-    (origami-global-mode 1)
-    (define-key evil-normal-state-map "za" 'origami-forward-toggle-node)
-    (define-key evil-normal-state-map "zc" 'origami-close-node)
-    (define-key evil-normal-state-map "zC" 'origami-close-node-recursively))
-)
-(defun dotspacemacs/user-config ()
 
+(defun dotspacemacs/user-config ()
   (desktop-save-mode 1)
   (desktop-read)
   (global-git-commit-mode t)
@@ -185,12 +180,15 @@ dotspacemacs-configuration-layers '(
 
   ;;latex
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
   ;;fish shell
   ;; (add-hook 'term-mode-hook 'toggle-truncate-lines)
 
   (global-company-mode)
-  ;; (setq-default helm-make-build-dir "build")
-  ;; (put 'helm-make-build-dir 'safe-local-variable 'stringp)
+
+  (setq-default helm-make-build-dir "build")
+  ;; prevent Emacs will ask if the variable helm-make-build-dir is safe
+  (put 'helm-make-build-dir 'safe-local-variable 'stringp)
 
   ;; (global-set-key [f5] `recompile)
 
@@ -199,7 +197,6 @@ dotspacemacs-configuration-layers '(
    '(initial-frame-alist (quote ((fullscreen . maximized))))
 
   ;; (set-face-attribute 'default nil :font "Inconsolata-10")
-  (setq-default dotspacemacs-line-numbers t)
   )
   )
 (custom-set-variables
@@ -207,10 +204,11 @@ dotspacemacs-configuration-layers '(
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(desktop-save-mode t)
+ '(desktop-base-lock-name ".emacs.desktop.lock" nil nil "desktop lock")
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (sql-indent dockerfile-mode docker json-mode docker-tramp json-snatcher json-reformat yaml-mode vimrc-mode dactyl-mode pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib fcitx web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data powerline spinner hydra parent-mode projectile pkg-info epl flx let-alist smartparens iedit anzu evil goto-chg undo-tree highlight bind-map bind-key packed f dash s helm avy helm-core async popup insert-shebang fish-mode company-shell org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor company-quickhelp pos-tip yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic ac-cake pdf-tools tablist mmm-mode markdown-toc markdown-mode helm-company helm-c-yasnippet gh-md fuzzy disaster csv-mode company-statistics company-c-headers company cmake-mode clang-format auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (cmake-ide origami sql-indent dockerfile-mode docker json-mode docker-tramp json-snatcher json-reformat yaml-mode vimrc-mode dactyl-mode pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib fcitx web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data powerline spinner hydra parent-mode projectile pkg-info epl flx let-alist smartparens iedit anzu evil goto-chg undo-tree highlight bind-map bind-key packed f dash s helm avy helm-core async popup insert-shebang fish-mode company-shell org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor company-quickhelp pos-tip yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic ac-cake pdf-tools tablist mmm-mode markdown-toc markdown-mode helm-company helm-c-yasnippet gh-md fuzzy disaster csv-mode company-statistics company-c-headers company cmake-mode clang-format auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
