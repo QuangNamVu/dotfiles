@@ -9,6 +9,7 @@ inoremap <c-l> <Esc> gg=G `^ <CR>
 
 map <f5> :make %:r
 noremap  <Leader>cm :make %:r <CR>
+noremap  <Leader>mcc :!python % <CR>
 
 noremap  <Leader><Leader> :
 noremap  ; :
