@@ -1,1 +1,1 @@
-ndkey ‘^ ’ autosuggest-accept bindkey ‘^F’ autosuggest-accept
+bindkey ‘^ ’ autosuggest-accept bindkey ‘^F’ autosuggest-accept
