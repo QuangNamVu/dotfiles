@@ -116,6 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin:/home/coc/Android/Sdk/platform-tools:$PATH
 
 #export TERM=xterm #disable color
+export EDITOR=vim
 
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
