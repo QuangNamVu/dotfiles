@@ -110,9 +110,40 @@ source $ZSH/oh-my-zsh.sh
 
 # export PATH=/home/coc/android-studio/bin
 
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
-export JAVA=/usr/lib/jvm/java-8-openjdk/jre/bin
+# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
+# export JAVA=/usr/lib/jvm/java-8-openjdk/jre/bin
 
-export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin:/home/coc/Android/Sdk/platform-tools:$PATH
+# export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin:/home/coc/Android/Sdk/platform-tools:$PATH
 
 #export TERM=xterm #disable color
+
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/nam/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/nam/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nam/miniconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate python3
+    else
+        \export PATH="/home/nam/miniconda3/envs/python3/bin/python3.6:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/nam/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/nam/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nam/miniconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate python3
+    else
+        \export PATH="/home/nam/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
