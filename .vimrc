@@ -1,15 +1,13 @@
 let filename=expand('%:r')
 let mapleader="\<Space>"
-"set number
-"set relativenumber
+set number
+set relativenumber
 noremap  <Leader>fs :w<CR>
 noremap  <Leader>ff :edit  
+
 noremap <c-l> gg=G `.
 inoremap <c-l> <Esc> gg=G `^ <CR>
 
-map <f5> :make %:r
-noremap  <Leader>cm :make %:r <CR>
-noremap  <Leader>mcc :!python % <CR>
 noremap  <Leader>w2 :vsplit % <CR>
 
 noremap  <Leader><Leader> :
@@ -20,12 +18,11 @@ noremap <Leader>wj :wincmd j<CR>
 noremap <Leader>wk :wincmd k<CR>
 noremap <Leader>wl :wincmd l<CR>
 
-noremap <Leader>y "+y
-noremap <Leader>c "+y
+vmap <Leader>y "+y
+vmap <Leader>c "+y
 
 " Enable Ctrl+c and Ctrl+v for copy and paste
-noremap <C-c> "+y
-inoremap <C-c> "+y
+vmap <C-c> "+y
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
