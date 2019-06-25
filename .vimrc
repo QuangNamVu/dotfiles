@@ -3,7 +3,7 @@ let mapleader="\<Space>"
 "set number
 "set relativenumber
 noremap  <Leader>fs :w<CR>
-noremap  <Leader>ff :open  
+noremap  <Leader>ff :edit  
 noremap <c-l> gg=G `.
 inoremap <c-l> <Esc> gg=G `^ <CR>
 
@@ -19,7 +19,17 @@ noremap <Leader>wh :wincmd h<CR>
 noremap <Leader>wj :wincmd j<CR>
 noremap <Leader>wk :wincmd k<CR>
 noremap <Leader>wl :wincmd l<CR>
+
 noremap <Leader>y "+y
+noremap <Leader>c "+y
+
+" Enable Ctrl+c and Ctrl+v for copy and paste
+noremap <C-c> "+y
+inoremap <C-c> "+y
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
 "/usr/share/vim/vim80/colors
 colorscheme default
 syntax on
@@ -32,9 +42,15 @@ set guifont=Source\ Code\ Pro\ 11
 
 let i = 1
 while i <= 9
-    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-    let i = i + 1
+execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+let i = i + 1
 endwhile
 
 " enable mouse
 set mouse=a
+
+
+" Autocomplete
+"
+filetype plugin on  
+set omnifunc=syntaxcomplete#Complete
