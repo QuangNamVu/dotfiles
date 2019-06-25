@@ -63,5 +63,7 @@ autocmd FileType vim              let b:comment_leader = '" '
 
 xnoremap # :norm 0i<C-r>=b:comment_leader<CR><CR>
 xnoremap & :norm ^<C-r>=len(b:comment_leader)<CR>x<CR>
+xnoremap  <Leader>cc :norm 0i<C-r>=b:comment_leader<CR><CR>
+xnoremap  <Leader>cu :norm ^<C-r>=len(b:comment_leader)<CR>x<CR>
 " xnoremap <C-/> :norm 0i<C-r>=b:comment_leader<CR><CR>
-xnoremap <C-?> :norm ^<C-r>=len(b:comment_leader)<CR>x<CR>
+" xnoremap <C-?> :norm ^<C-r>=len(b:comment_leader)<CR>x<CR>
